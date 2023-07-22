@@ -1,0 +1,9 @@
+version: '2'
+
+authtoken: ngrok-auth-token
+
+tunnels:
+  local-tg-setup:
+    proto: http
+    addr: local-server
+    domain: your-free-domain-here.ngrok-free.app

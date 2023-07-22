@@ -1,0 +1,68 @@
+version: '3.3'
+
+networks:
+  telegram-sdk-setup-network:
+    driver: bridge
+
+volumes:
+  caddy-config:
+  caddy-data:
+  mysql-data:
+  redis-data:
+
+services:
+  local-php:
+    container_name: local-php
+    networks:
+      - telegram-sdk-setup-network
+    extends:
+      file: ./docker-compose.core.yml
+      service: core-php
+    depends_on:
+      - local-db
+      - local-redis
+
+  local-server:
+    container_name: local-server
+    networks:
+      - telegram-sdk-setup-network
+    extends:
+      file: ./docker-compose.core.yml
+      service: core-server
+    depends_on:
+      - local-php
+    volumes:
+      - caddy-data:/data
+      - caddy-config:/config
+      - ./local/services/caddy/:/etc/caddy/
+
+  local-db:
+    container_name: local-db
+    networks:
+      - telegram-sdk-setup-network
+    extends:
+      file: ./docker-compose.core.yml
+      service: core-db
+
+  local-redis:
+    container_name: local-redis
+    networks:
+      - telegram-sdk-setup-network
+    extends:
+      file: ./docker-compose.core.yml
+      service: core-redis
+
+  local-ngrok:
+    container_name: local-ngrok
+    networks:
+      - telegram-sdk-setup-network
+    extends:
+      file: ./docker-compose.core.yml
+      service: core-ngrok
+    depends_on:
+      - local-server
+    command:
+      - "start"
+      - "--all"
+      - "--config"
+      - "/etc/config.yml"
