@@ -11,10 +11,10 @@ class StartCommand extends Command
     /**
      * @inheritDoc
      */
-    public function handle()
+    public function handle(): void
     {
         $this->replyWithMessage([
-            'text' => 'Тицни на кнопку',
+            'text' => 'Press on a button',
             'reply_markup' => $this->buildKeyboard(),
         ]);
     }
