@@ -14,7 +14,8 @@ abstract class AbstractQuery
             ->firstWhere(fn ($action) => preg_match(forward_static_call([$action, 'getRegex']), $data));
     }
 
-    public static function getRegex() {
+    public static function getRegex(): string
+    {
         return static::$regex;
     }
 
