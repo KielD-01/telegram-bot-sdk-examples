@@ -41,3 +41,8 @@ Then, You would be able to:
 - Set a webhook via page `{domain}.ngrok-free.app/telegram/webhook` (GET request)
 - Send a commands, press buttons via Bot and receive everything to Your local ngrok tunnel
 
+# ToDo
+- [] Caddy2 reverse proxy to access ngrok panel
+- [] Cut off ngrok from an external access to the container (internal network only)
+- [] Add more examples
+- [] Restructure samples (possibly)
