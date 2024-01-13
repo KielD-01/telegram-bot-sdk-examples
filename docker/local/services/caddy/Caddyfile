@@ -1,4 +1,4 @@
-:80 {
+tg-sdk.local {
     root * /var/www/application/public
     encode zstd gzip
     php_fastcgi local-php:9000

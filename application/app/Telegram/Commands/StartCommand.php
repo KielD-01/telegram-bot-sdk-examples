@@ -2,6 +2,7 @@
 
 namespace App\Telegram\Commands;
 
+use JsonException;
 use Telegram\Bot\Commands\Command;
 
 class StartCommand extends Command
@@ -19,6 +20,9 @@ class StartCommand extends Command
         ]);
     }
 
+    /**
+     * @throws JsonException
+     */
     private function buildKeyboard(): false|string
     {
         return json_encode([
@@ -32,9 +36,12 @@ class StartCommand extends Command
                     ['text' => '🎲 Random Number', 'callback_data' => 'random_number']
                 ],
                 [
+                    ['text' => '🎲 Inline Keyboard', 'callback_data' => 'inline_kbd']
+                ],
+                [
                     ['text' => 'Void', 'callback_data' => 'void']
                 ],
             ]
-        ]);
+        ], JSON_THROW_ON_ERROR);
     }
 }

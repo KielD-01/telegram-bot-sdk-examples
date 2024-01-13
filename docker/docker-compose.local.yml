@@ -9,6 +9,7 @@ volumes:
   caddy-data:
   mysql-data:
   redis-data:
+  telegram-bot-api-data:
 
 services:
   local-php:

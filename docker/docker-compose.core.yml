@@ -50,3 +50,19 @@ services:
       - "4040:4040"
     volumes:
       - ./global/services/ngrok/config.yml:/etc/config.yml
+
+  core-telegram-bot-api:
+    image: aiogram/telegram-bot-api:latest
+    container_name: core-telegram-bot-api
+    ports:
+      - "8081:8081"
+      - "8082:8082"
+    env_file:
+      - ./.env
+    environment:
+      TELEGRAM_API_ID: ${TELEGRAM_API_ID}
+      TELEGRAM_API_HASH: ${TELEGRAM_API_HASH}
+      TELEGRAM_STAT: ${TELEGRAM_STAT:-0}
+      TELEGRAM_MAX_WEBHOOK_CONNECTIONS: ${TELEGRAM_MAX_WEBHOOK_CONNECTIONS:-100}
+      TELEGRAM_MAX_CONNECTIONS: ${TELEGRAM_MAX_CONNECTIONS:-100}
+      TELEGRAM_LOCAL: ${TELEGRAM_LOCAL:-1}
