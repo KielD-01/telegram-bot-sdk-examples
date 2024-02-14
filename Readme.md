@@ -40,8 +40,8 @@ Before accessing a project, You would need to specify hosts in `/etc/hosts` file
 - Windows (`C:\Windows\System32\Drivers\etc\hosts`)
 
 Next hosts should be specified: 
-- ngrok.tg.local
-- tg-sdk.local
+- [ngrok.tg.local](https://ngrok.tg.local)
+- [tg-sdk.local](https://tg-sdk.local)
 
 ```shell
 172.22.0.6 tg-sdk.local ngrok.tg.local
@@ -49,7 +49,7 @@ Next hosts should be specified:
 
 Then, You would be able to:
 - Visit Your project at `{domain}.ngrok-free.app`
-- Visit [ngrok status page](http://localhost:4040) at `https://ngrok.tg.local:4040`
+- Visit [ngrok status page](https://ngrok.tg.local) at `https://ngrok.tg.local`
 - Set a webhook via page `{domain}.ngrok-free.app/telegram/webhook` (GET request)
 - Send a commands, press buttons via Bot and receive everything to Your local ngrok tunnel
 
