@@ -6,4 +6,4 @@ tunnels:
   local-tg-setup:
     proto: http
     addr: local-server
-    domain: e16f73dae3e4-17313614138973249815.ngrok-free.app
+    domain: hog-loved-suddenly.ngrok-free.app

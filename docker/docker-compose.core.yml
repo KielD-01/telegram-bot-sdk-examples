@@ -17,9 +17,6 @@ services:
   core-server:
     image: caddy:2.7-alpine
     container_name: core-server
-    ports:
-      - "80:80"
-      - "443:443"
     volumes:
       - ../application:/var/www/application
     restart: "on-failure"
@@ -44,7 +41,7 @@ services:
       ALLOW_EMPTY_PASSWORD: "yes"
 
   core-ngrok:
-    image: ngrok/ngrok
+    image: ngrok/ngrok:latest
     container_name: core-ngrok
     ports:
       - "4040:4040"
