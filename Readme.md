@@ -35,14 +35,27 @@ cd docker
 docker-compose -f docker-compose.local.yml -p project-name up -d --remove-orphans --build
 ```
 
+Before accessing a project, You would need to specify hosts in `/etc/hosts` file located at:    
+- Linux / MacOS X (`/etc/hosts`)
+- Windows (`C:\Windows\System32\Drivers\etc\hosts`)
+
+Next hosts should be specified: 
+- ngrok.tg.local
+- tg-sdk.local
+
+```shell
+172.22.0.6 tg-sdk.local ngrok.tg.local
+```
+
 Then, You would be able to:
 - Visit Your project at `{domain}.ngrok-free.app`
-- Visit [ngrok status page](http://localhost:4040) at `http://localhost:4040`
+- Visit [ngrok status page](http://localhost:4040) at `https://ngrok.tg.local:4040`
 - Set a webhook via page `{domain}.ngrok-free.app/telegram/webhook` (GET request)
 - Send a commands, press buttons via Bot and receive everything to Your local ngrok tunnel
 
+
 # ToDo
-- [ ] Caddy2 reverse proxy to access ngrok panel
-- [ ] Cut off ngrok from an external access to the container (internal network only)
+- [x] Caddy2 reverse proxy to access ngrok panel
+- [x] Cut off ngrok from external access to the container (internal network only)
 - [ ] Add more examples
 - [ ] Restructure samples (possibly)

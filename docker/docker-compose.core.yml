@@ -43,8 +43,6 @@ services:
   core-ngrok:
     image: ngrok/ngrok:latest
     container_name: core-ngrok
-    ports:
-      - "4040:4040"
     volumes:
       - ./global/services/ngrok/config.yml:/etc/config.yml
 

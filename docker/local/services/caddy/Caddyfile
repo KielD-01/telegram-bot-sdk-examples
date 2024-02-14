@@ -1,6 +1,8 @@
-:80 {
-    root * /var/www/application/public
-    encode zstd gzip
-    php_fastcgi local-php-fpm:9000
-    file_server
+import snippets/*
+
+import laravel :80 /var/www/application/public local-php-fpm:9000
+import laravel tg-sdk.local /var/www/application/public local-php-fpm:9000
+
+ngrok.tg.local {
+    reverse_proxy local-ngrok:4040
 }

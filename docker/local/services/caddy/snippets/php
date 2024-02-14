@@ -1,0 +1,8 @@
+(laravel) {
+    {args.0} {
+        root * {args.1}
+        encode zstd gzip
+        php_fastcgi {args.2}
+        file_server
+    }
+}
