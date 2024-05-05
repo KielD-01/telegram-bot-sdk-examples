@@ -1,9 +1,0 @@
-version: '2'
-
-authtoken: 7kYU3EjyCdJgGMGAuCgtQ_2ybCSHHEGk6M6t9sNWhon
-
-tunnels:
-  local-tg-setup:
-    proto: http
-    addr: local-server
-    domain: hog-loved-suddenly.ngrok-free.app
