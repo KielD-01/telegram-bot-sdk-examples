@@ -59,3 +59,6 @@ Then, You would be able to:
 - [x] Cut off ngrok from external access to the container (internal network only)
 - [ ] Add more examples
 - [ ] Restructure samples (possibly)
+
+# Examples
+- [ ] Commands visibility per ACL (admin commands; user commands; command permissions) 
